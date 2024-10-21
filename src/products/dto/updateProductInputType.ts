@@ -1,5 +1,3 @@
-
-
 import { Field, InputType } from '@nestjs/graphql';
 
 @InputType()
@@ -11,24 +9,25 @@ export class UpdateInputType {
   discountedPrice?: number;
 }
 
+
+
 @InputType()
 export class UpdateProductInputType {
-    @Field()
-    // @IsMongoId()
-   id?: string;
+  @Field({ nullable: true })
+  id?: string;
 
-  @Field()
+  @Field({ nullable: true })
   name?: string;
 
-  @Field()
+  @Field({ nullable: true })
   price?: number;
 
-  @Field()
+  @Field({ nullable: true })
   inStock?: number;
 
-  @Field()
+  @Field({ nullable: true })
   isExp?: boolean;
 
-  @Field()
+  @Field(() => UpdateInputType, { nullable: true })
   discount?: UpdateInputType;
 }

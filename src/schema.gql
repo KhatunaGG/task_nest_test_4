@@ -71,12 +71,12 @@ input DiscountInputType {
 }
 
 input UpdateProductInputType {
-  id: String!
-  name: String!
-  price: Float!
-  inStock: Float!
-  isExp: Boolean!
-  discount: UpdateInputType!
+  id: String
+  name: String
+  price: Float
+  inStock: Float
+  isExp: Boolean
+  discount: UpdateInputType
 }
 
 input UpdateInputType {
