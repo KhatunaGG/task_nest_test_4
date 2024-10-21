@@ -1,0 +1,85 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type PostObjectType {
+  title: String!
+  content: String!
+  _id: ID!
+}
+
+type DiscountObjectType {
+  status: Boolean!
+  discountedPrice: Float!
+}
+
+type ProductObjectType {
+  _id: String!
+  name: String!
+  price: Float!
+  inStock: Float!
+  isExp: Boolean!
+  discount: DiscountObjectType!
+}
+
+type Query {
+  getAllPosts: [PostObjectType!]!
+  getById(id: IsValidArgsId!): PostObjectType
+  getAllProducts: [ProductObjectType!]!
+  getProductById(id: IsValidProductId!): ProductObjectType
+}
+
+input IsValidArgsId {
+  id: String!
+}
+
+input IsValidProductId {
+  id: String!
+}
+
+type Mutation {
+  create(createPostArgs: CreatePostInput!): PostObjectType!
+  delete(id: IsValidArgsId!): PostObjectType
+  update(updatePostInput: UpdatePostInput!): PostObjectType
+  createProduct(createProductInputType: CreateProductInputType!): ProductObjectType!
+  deleteProduct(id: IsValidProductId!): ProductObjectType
+  updateProduct(updateProductInputType: UpdateProductInputType!): ProductObjectType
+}
+
+input CreatePostInput {
+  title: String!
+  content: String!
+}
+
+input UpdatePostInput {
+  id: String!
+  title: String
+  content: String
+}
+
+input CreateProductInputType {
+  name: String!
+  price: Float!
+  inStock: Float!
+  isExp: Boolean!
+  discount: DiscountInputType!
+}
+
+input DiscountInputType {
+  status: Boolean!
+  discountedPrice: Float!
+}
+
+input UpdateProductInputType {
+  id: String!
+  name: String!
+  price: Float!
+  inStock: Float!
+  isExp: Boolean!
+  discount: UpdateInputType!
+}
+
+input UpdateInputType {
+  status: Boolean!
+  discountedPrice: Float!
+}
